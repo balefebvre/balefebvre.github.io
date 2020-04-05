@@ -1,0 +1,32 @@
+# language: minimal  # equivalent to bash, sh or shell
+language: ruby
+
+branches:
+  only:
+    - servant  # i.e. avoid the website to be updated by commits outside of the `servant` branch
+
+# before_install:
+#   # TODO complete!
+
+# install:
+#   - bundle install --jobs=3 --retry=3  # Ruby's default
+
+# before_script:
+#   # TODO complete!
+
+# script:
+#   - rake  # Ruby's default
+script: bundle exec jekyll build  # TODO replace?
+
+# deploy:
+#   # TODO complete!
+
+# Minimal configuration to deploy static file to GitHub Pages after a successful build.addons:
+# (c.f. https://docs.travis-ci.com/user/deployment/pages/)
+deploy:
+  provider: pages  # TODO understand what `pages` means...
+  skip_cleanup: true  # avoid deleting all the files creating during the build (which will probably delete what is trying to be uploaded)
+  github_token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
+  keep_history: true  # disable the "force push" behavior to avoid overwriting the history on the target branch
+  on:
+    branch: master  # i.e. target branch used for deployment and only this specific purpose

@@ -7,6 +7,8 @@ branches:
 
 # before_install:
 #   # TODO complete!
+before_install:
+  - gem update --system  # c.f. https://bundler.io/blog/2019/05/14/solutions-for-cant-find-gem-bundler-with-executable-bundle.html
 
 # install:
 #   - bundle install --jobs=3 --retry=3  # Ruby's default

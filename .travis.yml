@@ -40,8 +40,8 @@ deploy:
   token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
   # edge: true  # opt in to dpl v2
   edge:
-    source: travis-ci/dpl
-    branch: master
+    source: balefebvre/dpl
+    branch: pages-source-branch
   on:
     branch: servant  # i.e. target branch used for deployment and only this specific purpose
   local_dir: _site  # i.e. directory to push to GitHub Pages

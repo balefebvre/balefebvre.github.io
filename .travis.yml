@@ -1,5 +1,9 @@
-# language: minimal  # equivalent to bash, sh or shell
-language: ruby
+# language: minimal  # equivalent to bash, sh or shell  # TODO remove!
+language: ruby  # i.e. language support to enable
+os: linux  # i.e. build environment operating system
+arch: amd64  # i.e. build environment architecture
+dist: xenial  # i.e. build environment distribution (Ubuntu Xenial 16.04)
+
 
 branches:
   only:
@@ -29,8 +33,10 @@ script: bundle exec jekyll build  # TODO replace?
 # (c.f. https://docs.travis-ci.com/user/deployment/pages/)
 deploy:
   provider: pages  # TODO understand what `pages` means...
-  skip_cleanup: true  # avoid deleting all the files creating during the build (which will probably delete what is trying to be uploaded)
-  github_token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
+  # skip_cleanup: true  # avoid deleting all the files creating during the build (which will probably delete what is trying to be uploaded)  # TODO remove (deprecated)?
+  cleanup: true  # avoid deleting all the files creating during the build (which will probably delete what is trying to be uploaded)
+  # github_token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
+  token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
   on:
     branch: servant  # i.e. target branch used for deployment and only this specific purpose
   local_dir: _site  # i.e. directory to push to GitHub Pages

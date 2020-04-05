@@ -35,10 +35,13 @@ deploy:
   # provider: pages:git  # TODO understand what it means...
   provider: pages  # TODO understand what it means...
   # skip_cleanup: true  # avoid deleting all the files creating during the build (which will probably delete what is trying to be uploaded)  # TODO remove (deprecated)?
-  # cleanup: true  # avoid deleting all the files creating during the build (which will probably delete what is trying to be uploaded)
+  # cleanup: true  # avoid deleting all the files creating during the build (which will probably delete what is trying to be uploaded)  #TODO remove (failure)?
   # github_token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
   token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
-  edge: true  # opt in to dpl v2
+  # edge: true  # opt in to dpl v2
+  edge:
+    source: travis-ci/dpl
+    branch: master
   on:
     branch: servant  # i.e. target branch used for deployment and only this specific purpose
   local_dir: _site  # i.e. directory to push to GitHub Pages

@@ -13,6 +13,8 @@ before_install:
 # install:
 #   - bundle install --jobs=3 --retry=3  # Ruby's default
 
+
+
 # before_script:
 #   # TODO complete!
 
@@ -31,4 +33,5 @@ deploy:
   github_token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
   keep_history: true  # disable the "force push" behavior to avoid overwriting the history on the target branch
   on:
-    branch: master  # i.e. target branch used for deployment and only this specific purpose
+    branch: servant  # i.e. target branch used for deployment and only this specific purpose
+  target_branch: master

@@ -31,7 +31,18 @@ deploy:
   provider: pages  # TODO understand what `pages` means...
   skip_cleanup: true  # avoid deleting all the files creating during the build (which will probably delete what is trying to be uploaded)
   github_token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
-  keep_history: true  # disable the "force push" behavior to avoid overwriting the history on the target branch
   on:
     branch: servant  # i.e. target branch used for deployment and only this specific purpose
-  target_branch: master
+  local_dir: _site  # i.e. directory to push to GitHub Pages
+  repo: balefebvre/balefebvre.github.io  # i.e. repo slug
+  target_branch: master  # i.e. branch to push `local_dir` contents to
+  keep_history: true  # disable the "force push" behavior to avoid overwriting the history on the target branch  # i.e. create incremental commit instead of doing push force
+  # fqdn:  # i.e. set a custom domain for the website
+  # project_name:  # Defaults to value of `fqdn` or repo slug, used for metadata.
+  # email:  # Optional, committer info, defaults to `deploy@travis-ci.org`.
+  # name:  # Optional, committer, defaults to `Deployment Bot`.
+  # commiter_from_gh:  # Optional, defaults to `false`. Allows you to use the token’s owner name and email for commit. Overrides `email` and `name` options.
+  # allow_empty_commit:  # Optional, defaults to `false`. Enabled if only `keep_history` is `true`.
+  # github_url:  # Optional, the URL of the self-hosted GitHub enterprise, defaults to `github.com`.
+  verbose: true  # Optional, be verbose about internal steps, defaults to `false`.
+  # deployment_file:  # Optional, defaults to `false`, enables creation of deployment-info files.

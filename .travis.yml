@@ -32,7 +32,7 @@ script: bundle exec jekyll build  # TODO replace?
 # Minimal configuration to deploy static file to GitHub Pages after a successful build.addons:
 # (c.f. https://docs.travis-ci.com/user/deployment/pages/)
 deploy:
-  provider: pages  # TODO understand what `pages` means...
+  provider: pages:git  # TODO understand what it means...
   # skip_cleanup: true  # avoid deleting all the files creating during the build (which will probably delete what is trying to be uploaded)  # TODO remove (deprecated)?
   cleanup: true  # avoid deleting all the files creating during the build (which will probably delete what is trying to be uploaded)
   # github_token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
@@ -48,7 +48,7 @@ deploy:
   # email:  # Optional, committer info, defaults to `deploy@travis-ci.org`.
   # name:  # Optional, committer, defaults to `Deployment Bot`.
   # commiter_from_gh:  # Optional, defaults to `false`. Allows you to use the token’s owner name and email for commit. Overrides `email` and `name` options.
-  # allow_empty_commit:  # Optional, defaults to `false`. Enabled if only `keep_history` is `true`.
+  allow_empty_commit: true  # Optional, defaults to `false`. Enabled if only `keep_history` is `true`.
   # github_url:  # Optional, the URL of the self-hosted GitHub enterprise, defaults to `github.com`.
   verbose: true  # Optional, be verbose about internal steps, defaults to `false`.
   # deployment_file:  # Optional, defaults to `false`, enables creation of deployment-info files.

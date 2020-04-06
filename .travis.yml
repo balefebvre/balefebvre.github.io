@@ -11,9 +11,7 @@ branches:
     - servant  # i.e. avoid the website to be updated by commits outside of the `servant` branch
 
 # before_install:
-#   # TODO complete!
-before_install:
-  - gem update --system  # c.f. https://bundler.io/blog/2019/05/14/solutions-for-cant-find-gem-bundler-with-executable-bundle.html
+#   - gem update --system  # c.f. https://bundler.io/blog/2019/05/14/solutions-for-cant-find-gem-bundler-with-executable-bundle.html
 
 # install:
 #   - bundle install --jobs=3 --retry=3  # Ruby's default
@@ -26,9 +24,6 @@ before_install:
 # script:
 #   - rake  # Ruby's default
 script: bundle exec jekyll build  # TODO replace?
-
-# deploy:
-#   # TODO complete!
 
 # Minimal configuration to deploy static file to GitHub Pages after a successful build.addons:
 # (c.f. https://docs.travis-ci.com/user/deployment/pages/)

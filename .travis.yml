@@ -1,9 +1,10 @@
 # language: minimal  # equivalent to bash, sh or shell  # TODO remove!
 language: ruby  # i.e. language support to enable
 os: linux  # i.e. build environment operating system
-arch: amd64  # i.e. build environment architecture
 dist: xenial  # i.e. build environment distribution (Ubuntu Xenial 16.04)
+arch: amd64  # i.e. build environment architecture
 
+rvm: 2.6  # TODO correct?
 
 branches:
   only:

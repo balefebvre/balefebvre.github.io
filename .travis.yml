@@ -38,10 +38,10 @@ deploy:
   # cleanup: true  # avoid deleting all the files creating during the build (which will probably delete what is trying to be uploaded)  #TODO remove (failure)?
   # github_token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
   token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
-  # edge: true  # opt in to dpl v2
-  edge:
-    source: balefebvre/dpl
-    branch: pages-source-branch
+  edge: true  # opt in to dpl v2
+  # edge:
+  #   source: travis-ci/dpl
+  #   branch: master
   on:
     branch: servant  # i.e. target branch used for deployment and only this specific purpose
   local_dir: _site  # i.e. directory to push to GitHub Pages
@@ -56,5 +56,5 @@ deploy:
   allow_empty_commit: true  # Optional, defaults to `false`. Enabled if only `keep_history` is `true`.
   # github_url:  # Optional, the URL of the self-hosted GitHub enterprise, defaults to `github.com`.
   verbose: true  # Optional, be verbose about internal steps, defaults to `false`.
-  deployment_file: true  # Optional, defaults to `false`, enables creation of deployment-info files.
+  # deployment_file: true  # Optional, defaults to `false`, enables creation of deployment-info files.
   strategy: git  # GitHub Pages deployment strategy — type: string, default: `git`, known values: `api`, `git`

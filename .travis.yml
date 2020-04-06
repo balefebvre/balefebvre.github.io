@@ -14,8 +14,9 @@ install:
   - pip install pelican
   - pip install markdown
 
-# script:
-#   - pytest
+script:
+  # - pytest
+  - pelican content
 
 # Configuration to deploy static Pelican website to GitHub Pages (c.f. https://docs.travis-ci.com/user/deployment/pages/):
 deploy:

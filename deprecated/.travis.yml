@@ -1,26 +1,38 @@
-language: python  # i.e. language support to enable
+# language: minimal  # equivalent to bash, sh or shell  # TODO remove!
+language: ruby  # i.e. language support to enable
 os: linux  # i.e. build environment operating system
 dist: xenial  # i.e. build environment distribution (Ubuntu Xenial 16.04)
 arch: amd64  # i.e. build environment architecture
 
-python: 3.7
+rvm: 2.6  # TODO correct?
 
 branches:
   only:
     - servant  # i.e. avoid the website to be updated by commits outside of the `servant` branch
 
-install:
-  # - pip install -r requirements.txt
-  - pip install pelican
-  - pip install markdown
+# before_install:
+#   - gem update --system  # c.f. https://bundler.io/blog/2019/05/14/solutions-for-cant-find-gem-bundler-with-executable-bundle.html
+
+# install:
+#   - bundle install --jobs=3 --retry=3  # Ruby's default
+
+
+
+# before_script:
+#   # TODO complete!
 
 # script:
-#   - pytest
+#   - rake  # Ruby's default
+script: bundle exec jekyll build  # TODO replace?
 
-# Configuration to deploy static Pelican website to GitHub Pages (c.f. https://docs.travis-ci.com/user/deployment/pages/):
+# Minimal configuration to deploy static file to GitHub Pages after a successful build.addons:
+# (c.f. https://docs.travis-ci.com/user/deployment/pages/)
 deploy:
-  provider: pages
+  # provider: pages:git  # TODO understand what it means...
+  provider: pages  # TODO understand what it means...
+  # skip_cleanup: true  # avoid deleting all the files creating during the build (which will probably delete what is trying to be uploaded)  # TODO remove (deprecated)?
   # cleanup: true  # avoid deleting all the files creating during the build (which will probably delete what is trying to be uploaded)  #TODO remove (failure)?
+  # github_token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
   token: $USER_GITHUB_PAGES_TOKEN  # set in the settings page of your repository, as a secure variable
   edge: true  # opt in to dpl v2
   # edge:
@@ -28,7 +40,7 @@ deploy:
   #   branch: master
   on:
     branch: servant  # i.e. target branch used for deployment and only this specific purpose
-  local_dir: output  # i.e. directory to push to GitHub Pages
+  local_dir: _site  # i.e. directory to push to GitHub Pages
   repo: balefebvre/balefebvre.github.io  # i.e. repo slug
   target_branch: master  # i.e. branch to push `local_dir` contents to
   keep_history: true  # disable the "force push" behavior to avoid overwriting the history on the target branch  # i.e. create incremental commit instead of doing push force

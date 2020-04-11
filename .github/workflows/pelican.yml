@@ -1,0 +1,32 @@
+# This workflow will install Python dependencies and generate a static site with Pelican.
+
+name: Pelican
+
+# Controls when the action will run. Triggers the workflow on push events but only for the servant branch.
+on:
+  push:
+    branches: [ servant ]
+
+jobs:
+  generate:
+
+    # The type of runner that this job will run on.
+    runs-on: ubuntu-latest
+
+    # Steps represent the sequence of tasks that will be executed as part of this job.
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
+    - uses: actions/checkout@v2
+    # Set up Python.
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.6
+    # Install Python dependencies.
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install --requirement requirements.txt
+    # Generate Pelican static site.
+    - name: Generate Pelican static site
+      run: pelican content

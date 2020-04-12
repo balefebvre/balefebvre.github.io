@@ -23,7 +23,10 @@ fi
 
 # Setup
 echo "# Setup"
+echo "HOME: $HOME"  # TODO remove!
 echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"  # TODO remove!
+echo "PWD: $(pwd)"  # TODO remove!
+echo "LS: $(ls)"  # TODO remove!
 echo "LOCAL_DIRECTORY: $LOCAL_DIRECTORY"  # TODO remove!
 SOURCE_DIRECTORY=$LOCAL_DIRECTORY  # TODO correct!
 echo "The source directory for deployment is $SOURCE_DIRECTORY"

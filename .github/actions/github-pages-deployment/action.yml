@@ -9,8 +9,8 @@ inputs:
     description: 'Repo slug'
     required: false
     default: <repo slug>  # TODO correct!
-  token:
   # github-token:  # TODO use this input name instead?
+  token:
     description: 'GitHub token with repo permission'
     required: true
     # default: ${{ secrets.GITHUB_TOKEN }}  # TODO uncomment (unsecure)?
@@ -21,9 +21,9 @@ runs:
   using: 'docker'
   image: 'Dockerfile'  # i.e. Docker image to use as the container to run the action
   env:  # i.e. key/value map of environment variables to set in the container environment
-  #   REPO: ${{ inputs.repo }}  # TODO remove?
     INPUTS_TOKEN: ${{ inputs.token }}  # TODO remove?
-    SECRETS_TOKEN: ${{ secrets.GITHUB_TOKEN }} # TODO remove?
+    # SECRETS_TOKEN: ${{ secrets.GITHUB_TOKEN }} # TODO remove?
+    # REPO: ${{ inputs.repo }}  # TODO remove?
   args:
     - ${{ inputs.repo }}
     - ${{ inputs.token }}  # TODO keep this secret?

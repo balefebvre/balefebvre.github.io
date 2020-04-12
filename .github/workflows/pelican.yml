@@ -16,7 +16,8 @@ jobs:
     # Steps represent the sequence of tasks that will be executed as part of this job.
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
-    - uses: actions/checkout@v2
+    - name: Check out repository
+      uses: actions/checkout@v2
     # Set up Python.
     - name: Set up Python
       uses: actions/setup-python@v1
@@ -31,8 +32,8 @@ jobs:
     # Generate Pelican static site.
     - name: Generate Pelican static site
       run: pelican content
-    # Test private GitHub Action.
-    - name: Test private GitHub Action
-      uses: actions/hello-world-docker-action
+    # Test local GitHub Action.
+    - name: Test local GitHub Action
+      uses: ./.github/actions/hello-world-docker-action
       with:
         who-to-greet: 'World'

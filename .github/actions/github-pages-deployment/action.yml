@@ -16,7 +16,7 @@ inputs:
   local-directory:
     description: 'Directory to push to GitHub Pages'
     required: false
-    default: '.'
+    default: 'output'  # TODO check (Pelican's default)!
 # outputs:
 #   time:
 #     description: 'The time we greeted you'

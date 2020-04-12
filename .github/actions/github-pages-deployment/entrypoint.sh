@@ -5,8 +5,9 @@
 # echo "REPO: $REPO"  # TODO remove?
 # echo "TOKEN: $TOKEN"  # TODO remove?
 
-# TODO login!
-if "$TOKEN" != ""; then
+# Login
+echo "TOKEN: $TOKEN"  # TODO remove!
+if ["$TOKEN" != ""]; then
   echo "TODO login token."  # TODO correct!
   exit 1  # TODO remove?
 else

@@ -20,7 +20,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'  # i.e. Docker image to use as the container to run the action
   env:  # i.e. key/value map of environment variables to set in the container environment
-    # REPO: ${{ inputs.repo }}  # TODO remove?
+    REPO: ${{ inputs.repo }}  # TODO remove?
     TOKEN: ${{ inputs.token }}  # TODO remove?
   args:
     - ${{ inputs.repo }}

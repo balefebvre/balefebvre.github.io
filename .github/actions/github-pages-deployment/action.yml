@@ -1,0 +1,26 @@
+name: 'GitHub Pages deployment'
+description: 'Deploy static site to GitHub Pages'
+inputs:
+#   who-to-greet:
+#     description: 'Who to greet'
+#     required: true
+#     default: 'World'
+  repo:
+    description: 'Repo slug'
+    required: false
+    default: <repo slug>  # TODO correct!
+  token:
+    description: 'GitHub token with repo permission'
+    required: true
+# outputs:
+#   time:
+#     description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repo }}
+    - ${{ inputs.token }}
+branding:
+  icon: 'upload'
+  color: 'blue'

@@ -37,3 +37,8 @@ jobs:
       uses: ./.github/actions/hello-world-docker-action
       with:
         who-to-greet: 'World'
+    # Test custom GitHub Pages deployment.
+    - name: Test custom GitHub Pages deployment
+      uses: ./.github/actions/github-pages-deployment
+      with:
+        token: $USER_GITHUB_PAGES_TOKEN

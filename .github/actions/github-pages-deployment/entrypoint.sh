@@ -1,7 +1,10 @@
 #!/bin/sh -l
 
-repo = $1
-token = $2
+REPO=$1
+echo "REPO: $REPO"
 
-echo "repo: $repo"
-# echo "token: $token"  # TODO keep this secret!
+TOKEN=$2
+echo "TOKEN: $TOKEN"  # TODO redacted or keep this secret?
+
+echo "INPUTS_TOKEN: $INPUTS_TOKEN"  # TODO redacted or keep this secret?
+echo "SECRETS_TOKEN: $SECRETS_TOKEN"  # TODO redacted or keep this secret?

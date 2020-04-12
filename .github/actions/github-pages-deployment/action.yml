@@ -1,26 +1,32 @@
 name: 'GitHub Pages deployment'
 description: 'Deploy static site to GitHub Pages'
 inputs:
-#   who-to-greet:
-#     description: 'Who to greet'
-#     required: true
-#     default: 'World'
+  # who-to-greet:
+  # description: 'Who to greet'
+  #   required: true
+  #   default: 'World'
   repo:
     description: 'Repo slug'
     required: false
     default: <repo slug>  # TODO correct!
   token:
+  # github-token:  # TODO use this input name instead?
     description: 'GitHub token with repo permission'
     required: true
+    # default: ${{ secrets.GITHUB_TOKEN }}  # TODO uncomment (unsecure)?
 # outputs:
 #   time:
 #     description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'Dockerfile'  # i.e. Docker image to use as the container to run the action
+  env:  # i.e. key/value map of environment variables to set in the container environment
+  #   REPO: ${{ inputs.repo }}  # TODO remove?
+    INPUTS_TOKEN: ${{ inputs.token }}  # TODO remove?
+    SECRETS_TOKEN: ${{ secrets.GITHUB_TOKEN }} # TODO remove?
   args:
     - ${{ inputs.repo }}
-    - ${{ inputs.token }}
+    - ${{ inputs.token }}  # TODO keep this secret?
 branding:
   icon: 'upload'
   color: 'blue'

@@ -6,18 +6,33 @@
 # echo "TOKEN: $TOKEN"  # TODO remove?
 
 # Login
+echo "# Login"
 echo "TOKEN: $TOKEN"  # TODO remove!
 if [ -n "$TOKEN" ]  # i.e. test if TOKEN is not empty
 then
-  echo "TODO login token."  # TODO correct!
-  exit 1  # TODO remove?
+  echo "## Login token"
+  # TODO recover user login.
+  echo "GITHUB_ACTOR: $GITHUB_ACTOR"  # TODO remove?
+  # TODO display info.
+  echo "Authenticated as $GITHUB_ACTOR"  # TODO remove?
+  # TODO check if token scope is sufficient?
 else
-  echo "TODO setup deploy key."  # TODO correct!
-  exit 1  # TODO remove?
+  echo "## Setup deploy key"
+  exit 1  # TODO correct!
 fi
 
-# TODO setup!
+# Setup
+echo "# Setup"
+echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"  # TODO remove!
+echo "LOCAL_DIRECTORY: $LOCAL_DIRECTORY"  # TODO remove!
+SOURCE_DIRECTORY=$LOCAL_DIRECTORY  # TODO correct!
+echo "The source directory for deployment is $SOURCE_DIRECTORY"
+exit 1  # TODO correct!
 
-# TODO prepare!
+# Prepare
+echo "# Prepare"
+# TODO complete!
 
-# TODO deploy!
+# Deploy
+echo "# Deploy"
+# TODO complete!

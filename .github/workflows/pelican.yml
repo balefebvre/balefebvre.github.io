@@ -40,5 +40,5 @@ jobs:
     # Test custom GitHub Pages deployment.
     - name: Test custom GitHub Pages deployment
       uses: ./.github/actions/github-pages-deployment
-      # with:
-      #   token: ${{ secrets.GITHUB_TOKEN }}  # TODO remove?
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}  # TODO remove?

@@ -12,7 +12,11 @@ inputs:
   # github-token:  # TODO use this input name instead?
   token:
     description: 'GitHub token with repo permission'
-    required: true
+    required: true  # TODO required but empty if not provided by the user???
+  local-directory:
+    description: 'Directory to push to GitHub Pages'
+    required: false
+    default: '.'
 # outputs:
 #   time:
 #     description: 'The time we greeted you'
@@ -20,11 +24,12 @@ runs:
   using: 'docker'
   image: 'Dockerfile'  # i.e. Docker image to use as the container to run the action
   env:  # i.e. key/value map of environment variables to set in the container environment
-    REPO: ${{ inputs.repo }}  # TODO remove?
-    TOKEN: ${{ inputs.token }}  # TODO remove?
+    REPO: ${{ inputs.repo }}
+    TOKEN: ${{ inputs.token }}
+    LOCAL_DIRECTORY: ${{ inputs.local-directory }}
   args:
-    - ${{ inputs.repo }}
-    - ${{ inputs.token }}  # TODO keep this secret?
+    - ${{ inputs.repo }}  # TODO remove?
+    - ${{ inputs.token }}  # TODO remove?
 branding:
   icon: 'upload'
   color: 'blue'

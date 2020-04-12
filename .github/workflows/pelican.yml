@@ -33,6 +33,6 @@ jobs:
       run: pelican content
     # Test private GitHub Action.
     - name: Test private GitHub Action
-      uses: .github/actions/hello-world-docker-action
+      uses: actions/hello-world-docker-action
       with:
         who-to-greet: 'World'

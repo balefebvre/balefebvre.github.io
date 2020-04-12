@@ -13,7 +13,6 @@ inputs:
   token:
     description: 'GitHub token with repo permission'
     required: true
-    default: ${{ secrets.GITHUB_TOKEN }}  # TODO uncomment (unsecure)?
 # outputs:
 #   time:
 #     description: 'The time we greeted you'
@@ -21,9 +20,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'  # i.e. Docker image to use as the container to run the action
   env:  # i.e. key/value map of environment variables to set in the container environment
-    INPUTS_TOKEN: ${{ inputs.token }}  # TODO remove?
-    # SECRETS_TOKEN: ${{ secrets.GITHUB_TOKEN }} # TODO remove?
     # REPO: ${{ inputs.repo }}  # TODO remove?
+    TOKEN: ${{ inputs.token }}  # TODO remove?
   args:
     - ${{ inputs.repo }}
     - ${{ inputs.token }}  # TODO keep this secret?

@@ -7,7 +7,7 @@
 
 # Login
 echo "TOKEN: $TOKEN"  # TODO remove!
-if [$TOKEN != ""]; then
+if [-n $TOKEN]; then  # i.e. test if TOKEN is not empty
   echo "TODO login token."  # TODO correct!
   exit 1  # TODO remove?
 else

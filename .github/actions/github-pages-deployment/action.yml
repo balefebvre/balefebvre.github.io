@@ -17,6 +17,14 @@ inputs:
     description: 'Directory to push to GitHub Pages'
     required: false
     default: 'output'  # TODO check (Pelican's default)!
+  name:
+    description: 'Committer name'
+    required: false
+    default: ''
+  email:
+    description: 'Committer email'
+    required: false
+    default: ''
 # outputs:
 #   time:
 #     description: 'The time we greeted you'
@@ -27,9 +35,12 @@ runs:
     REPO: ${{ inputs.repo }}
     TOKEN: ${{ inputs.token }}
     LOCAL_DIRECTORY: ${{ inputs.local-directory }}
-  args:
-    - ${{ inputs.repo }}  # TODO remove?
-    - ${{ inputs.token }}  # TODO remove?
+    NAME: ${{ inputs.name }}
+    EMAIL: ${{ inputs.email }}
+  # args:
+  #   - ${{ inputs.repo }}
+  #   - ${{ inputs.token }}
+  #   - ...
 branding:
   icon: 'upload'
   color: 'blue'

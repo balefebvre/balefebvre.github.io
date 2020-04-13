@@ -58,7 +58,8 @@ if [ -z "$EMAIL" ]  # i.e. test if empty
 then
   EMAIL="TODO"  # TODO correct!
   USER_NAME="balefebvre"
-  curl --request GET --url 'https://api.github.com/users/$USER_NAME' --header 'Accept: application/vnd.github.v3+json' --header 'Authorization: Bearer $TOKEN' --header 'Content-type: application/json'
+  curl --request GET --url "https://api.github.com/users" --header "Accept: application/vnd.github.v3+json" --header "Authorization: Bearer $TOKEN" --header "Content-type: application/json"
+  curl --request GET --url "https://api.github.com/users/$USER_NAME" --header "Accept: application/vnd.github.v3+json" --header "Authorization: Bearer $TOKEN" --header "Content-type: application/json"
 fi
 echo "Configuring git committer to be $NAME <$EMAIL>"
 exit 1  # TODO correct!

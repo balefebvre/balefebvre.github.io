@@ -50,11 +50,11 @@ SOURCE_DIRECTORY=$(realpath "$GITHUB_WORKSPACE/$LOCAL_DIRECTORY")  # TODO correc
 echo "The source directory for deployment is $SOURCE_DIRECTORY"
 # TODO commiter from GitHub Pages?
 # TODO git config.
-if [ -n "$NAME" ]  # i.e. test if not empty
+if [ -z "$NAME" ]  # i.e. test if empty
 then
   NAME="$GITHUB_ACTOR"  # TODO correct?
 fi
-if [ -n "$EMAIL" ]  # i.e. test if not empty
+if [ -z "$EMAIL" ]  # i.e. test if empty
 then
   EMAIL="TODO"  # TODO correct!
   USER_NAME="balefebvre"

@@ -1,28 +1,30 @@
 #!/bin/sh -l
 
+# TODO remove the following lines!
 # Display default environment variables
-echo "HOME: $HOME"  # TODO remove!
-echo "GIHTUB_WORKFLOW: $GITHUB_WORKFLOW"  # TODO remove!
-echo "GITHUB_RUN_ID: $GITHUB_RUN_ID"  # TODO remove!
-echo "GITHUB_RUN_NUMBER: $GITHUB_RUN_NUMBER"  # TODO remove!
-echo "GITHUB_ACTION: $GITHUB_ACTION"  # TODO remove!
-echo "GITHUB_ACTIONS: $GITHUB_ACTIONS"  # TODO remove!
-echo "GITHUB_ACTOR: $GITHUB_ACTOR"  # TODO remove!
-echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"  # TODO remove!
-echo "GITHUB_EVENT_NAME: $GITHUB_EVENT_NAME"  # TODO remove!
-echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"  # TODO remove!
-echo "GITHUB_SHA: $GITHUB_SHA"  # TODO remove!
-echo "GITHUB_REF: $GITHUB_REF"  # TODO remove!
-echo "GITHUB_HEAD_REF: $GITHUB_HEAD_REF"  # TODO remove!
-echo "GITHUB_BASE_REF: $GITHUB_BASE_REF"  # TODO remove!
-echo "GITHUB_TOKEN: $GITHUB_TOKEN"  # TODO remove!
+echo "# Display default environment variables"
+echo "HOME: $HOME"
+echo "GIHTUB_WORKFLOW: $GITHUB_WORKFLOW"
+echo "GITHUB_RUN_ID: $GITHUB_RUN_ID"
+echo "GITHUB_RUN_NUMBER: $GITHUB_RUN_NUMBER"
+echo "GITHUB_ACTION: $GITHUB_ACTION"
+echo "GITHUB_ACTIONS: $GITHUB_ACTIONS"
+echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+echo "GITHUB_EVENT_NAME: $GITHUB_EVENT_NAME"
+echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+echo "GITHUB_SHA: $GITHUB_SHA"
+echo "GITHUB_REF: $GITHUB_REF"
+echo "GITHUB_HEAD_REF: $GITHUB_HEAD_REF"
+echo "GITHUB_BASE_REF: $GITHUB_BASE_REF"
 
+# TODO remove the following lines!
 # Display custom environment variables
-echo "REPO: $REPO"  # TODO remove!
-echo "TOKEN: $TOKEN"  # TODO remove!
-echo "LOCAL_DIRECTORY: $LOCAL_DIRECTORY"  # TODO remove!
-echo "NAME: $NAME"  # TODO remove!
-echo "EMAIL: $EMAIL"  # TODO remove!
+echo "REPO: $REPO"
+echo "TOKEN: $TOKEN"
+echo "LOCAL_DIRECTORY: $LOCAL_DIRECTORY"
+echo "NAME: $NAME"
+echo "EMAIL: $EMAIL"
 
 # Miscellaneous
 echo "PWD: $(pwd)"  # TODO remove!
@@ -55,6 +57,8 @@ fi
 if [ -n "$EMAIL" ]  # i.e. test if not empty
 then
   EMAIL="TODO"  # TODO correct!
+  USER_NAME="balefebvre"
+  curl --request GET --url 'https://api.github.com/users/$USER_NAME' --header 'Accept: application/vnd.github.v3+json' --header 'Authorization: Bearer $TOKEN' --header 'Content-type: application/json'
 fi
 echo "Configuring git committer to be $NAME <$EMAIL>"
 exit 1  # TODO correct!

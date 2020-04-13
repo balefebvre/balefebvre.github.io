@@ -57,17 +57,68 @@ fi
 if [ -z "$EMAIL" ]  # i.e. test if empty
 then
   EMAIL="TODO"  # TODO correct!
-  USER_NAME="balefebvre"
-  curl --request GET --url "https://api.github.com/users" --header "Accept: application/vnd.github.v3+json" --header "Authorization: Bearer $TOKEN" --header "Content-type: application/json"
-  curl --request GET --url "https://api.github.com/users/$USER_NAME" --header "Accept: application/vnd.github.v3+json" --header "Authorization: Bearer $TOKEN" --header "Content-type: application/json"
+  # USER_NAME="balefebvre"
+  # curl --request GET --url "https://api.github.com/users" --header "Accept: application/vnd.github.v3+json" --header "Authorization: Bearer $TOKEN" --header "Content-type: application/json"
+  # curl --request GET --url "https://api.github.com/users/$USER_NAME" --header "Accept: application/vnd.github.v3+json" --header "Authorization: Bearer $TOKEN" --header "Content-type: application/json"
 fi
 echo "Configuring git committer to be $NAME <$EMAIL>"
-exit 1  # TODO correct!
 
 # Prepare
 echo "# Prepare"
-exit 1  # TODO correct!
+TARGET_BRANCH="master"  # TODO correct!
+URL="github.com"  # TODO correct!
+KEEP_HISTORY=""  # TODO correct!
+WORK_DIRECTORY="."  # TODO correct!
+echo "Deploying branch $TARGET_BRANCH to $URL"
+if [ -n "$KEEP_HISTORY" ]  # i.e. test if not empty
+then
+  echo "The deployment is configured to preserve the target branch if it exists on remote."
+fi
+echo "Using temporary work directory $WORK_DIRECTORY"
+cd "$WORK_DIRECTORY"
 
 # Deploy
 echo "# Deploy"
-exit 1  # TODO correct!
+# TODO git clone.
+# TODO git init.
+echo "Initializing local git repository."
+git init .
+# TODO copy files.
+echo "Copying $SOURCE_DIRECTORY contents to $WORK_DIRECTORY."
+rsync -rl --exclude ".git" --delete "$SOURCE_DIRECTORY/" .
+# TODO ...
+# TODO git config.
+echo "Configuring git committer to be $NAME <$EMAIL>."
+git config user.name "$NAME"
+git config user.email "$EMAIL"
+# TODO git commit.
+echo "Preparing to deploy $TARGET_BRANCH branch to GitHub Pages"
+# # TODO git commit hook!
+# # TODO deployment file!
+# # TODO cname!
+git add -A .
+ALLOW_EMPTY_COMMIT=""  # TODO correct!
+if [ -z "$ALLOW_EMPTY_COMMIT" ]  # i.e. test if empty
+then
+  GIT_COMMIT_OPTS=""
+else
+  GIT_COMMIT_OPTS="--allow-empty"
+fi
+COMMIT_MESSAGE="Deploy $PROJECT_NAME to $URL:$TARGET_BRANCH"  # TODO correct!
+if [ -n "$COMMIT_MESSAGE" ]  # i.e. test if not empty
+then
+  GIT_COMMIT_MSG_OPTS="-m \"$COMMIT_MESSAGE\""
+else
+  exit 1  # TODO correct!
+fi
+git commit $GIT_COMMIT_OPTS -q $GIT_COMMIT_MSG_OPTS
+# TODO git push.
+echo "Pushing to $URL."
+# git push $GIT_PUSH_OPTS --quiet "$REMOTE_URL" "$TARGET_BRANCH":"$TARGET_BRANCH" > /dev/null 2>&1
+# TODO git status.
+VERBOSE=""
+if [ -n "$VERBOSE" ]  # i.e. test if not empty
+  git status
+else
+  git status  # TODO remove?
+fi

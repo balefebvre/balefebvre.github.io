@@ -42,3 +42,5 @@ jobs:
       uses: ./.github/actions/github-pages-deployment
       with:
         token: ${{ secrets.GITHUB_TOKEN }}  # TODO remove?
+        # token: ${{ github.token }}  # TODO remove?
+        temporary-directory: ${{ runner.temp }}

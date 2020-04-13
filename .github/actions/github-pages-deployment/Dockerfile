@@ -1,6 +1,9 @@
 # Container image that runs your code
-# FROM alpine:3.10  # TODO remove (curl not available)!
-FROM ubuntu:18.04
+FROM alpine:3.11
+# FROM ubuntu:18.04
+
+RUN apk add curl
+# RUN apt install curl
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh

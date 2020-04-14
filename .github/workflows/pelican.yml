@@ -18,6 +18,19 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
     - name: Check out repository
       uses: actions/checkout@v2
+      with:
+        repository:  ${{ github.repository }}
+        # ref: ''
+        # token: ''
+        # ssh-key: ''
+        # ssh-known-hosts: ''
+        # ssh-strict: ''
+        # persist-credentials: ''
+        path: ${{ github.repository }}
+        # clean: ''
+        # fetch-depth: ''
+        # lfs: ''
+        # submodules: ''
     # Set up Python.
     - name: Set up Python
       uses: actions/setup-python@v1
@@ -32,6 +45,7 @@ jobs:
     # Generate Pelican static site.
     - name: Generate Pelican static site
       run: pelican content
+      working-directory: ${{ github.repository }}
     # Test local GitHub Action.
     - name: Test local GitHub Action
       uses: ./.github/actions/hello-world-docker-action

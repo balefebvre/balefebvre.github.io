@@ -76,6 +76,7 @@ then
   echo "The deployment is configured to preserve the target branch if it exists on remote."
 fi
 echo "Using temporary work directory $WORK_DIRECTORY"
+pwd  # TODO remove!
 cd "$WORK_DIRECTORY"
 pwd  # TODO remove!
 

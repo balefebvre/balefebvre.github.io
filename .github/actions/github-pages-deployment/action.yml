@@ -41,8 +41,8 @@ runs:
     LOCAL_DIRECTORY: ${{ inputs.local-directory }}
     NAME: ${{ inputs.name }}
     EMAIL: ${{ inputs.email }}
-    # TEMPORARY_DIRECTORY: ${{ inputs.temporary-directory }}
-    TEMPORARY_DIRECTORY: ${{ runner.temp }}
+    TEMPORARY_DIRECTORY: ${{ inputs.temporary-directory }}
+    # TEMPORARY_DIRECTORY: ${{ runner.temp }}
   # args:
   #   - ${{ inputs.repo }}
   #   - ${{ inputs.token }}

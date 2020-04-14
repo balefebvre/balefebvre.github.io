@@ -69,14 +69,14 @@ echo "# Prepare"
 TARGET_BRANCH="master"  # TODO correct!
 URL="github.com"  # TODO correct!
 KEEP_HISTORY=""  # TODO correct!
-WORK_DIRECTORY="."  # TODO correct!
+WORK_DIRECTORY="$TEMPORARY_DIRECTORY"  # TODO correct!
 echo "Deploying branch $TARGET_BRANCH to $URL"
 if [ -n "$KEEP_HISTORY" ]  # i.e. test if not empty
 then
   echo "The deployment is configured to preserve the target branch if it exists on remote."
 fi
 echo "Using temporary work directory $WORK_DIRECTORY"
-cd "$WORK_DIRECTORY"
+# cd "$WORK_DIRECTORY"
 
 ## Deploy
 #echo "# Deploy"

@@ -49,7 +49,8 @@ jobs:
       working-directory: ${{ github.repository }}
     # Test local GitHub Action.
     - name: Test local GitHub Action
-      uses: ./${{ github.repository }}/.github/actions/hello-world-docker-action
+      # uses: ./${{ github.repository }}/.github/actions/hello-world-docker-action
+      uses: ./balefebvre/balefebvre.github.io/.github/actions/hello-world-docker-action
       with:
         who-to-greet: 'World'
     # Test custom GitHub Pages deployment.
